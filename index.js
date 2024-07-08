@@ -20,6 +20,7 @@ app.listen(3000, () => {
     console.log('Server is running on port 3000');
 })
 
-app.get('/dog', (req, res) => {
-    res.send('woof');
+app.get('/products', async(req, res) => {
+    const products = await Product.find({})
+    res.render('products/index', { products });
 });
